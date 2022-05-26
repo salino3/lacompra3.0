@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import Input from './Input';
 import "./style.css";
+import ListaFruta from './ListaFruta'
 
 interface props {
   textoP: string;
@@ -25,12 +26,13 @@ const Carlos = ({ textoP, textoh5 }: props) => {
     dinero: 1000,
   };
 
-  let lacompra = 0;
+  let lacompra = 0; 
 
   const [carlos, setCarlos] = useState(UtenteCarlos.dinero);
   const [first, setfirst] = useState(lacompra);
+//const [fruty, setFruty] = useState(listaFruta.values);
 
-  // handleMasProduct
+// handleMasProduct
   const handleMasProduct = () => {
     setCarlos(carlos - 20);
     setfirst(first + 1);
@@ -64,9 +66,9 @@ const Carlos = ({ textoP, textoh5 }: props) => {
         <p style={{ color: "red" }}>{textoP}</p>
         <h5 style={{ color: "green" }}>{textoh5}</h5>
         <ul>
-          {frutas.map((todo, id) => (
+          {ListaFruta.map((todo, id) => (
             <>
-              <li key={id}>{todo.id} {todo.nombre} </li>
+              <li key={id}>{todo.id} {todo.name} </li>
               <button
                 className="btn btn-warning"
                 onClick={() => handleMenosProduct()}
@@ -107,4 +109,5 @@ const Carlos = ({ textoP, textoh5 }: props) => {
   );
 };
 
-export default Carlos
+
+export default Carlos;
