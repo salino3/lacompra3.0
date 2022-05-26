@@ -1,23 +1,23 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, {  useState, Fragment } from "react";
 import Input from './Input';
 import "./style.css";
 import ListaFruta from './ListaFruta'
 
 interface props {
   textoP: string;
-  textoh5: string
+  textoh5: string;
 }
 
 
 const Carlos = ({ textoP, textoh5 }: props) => {
   //
-  const frutas = [
-    { id: 1, nombre: "manzanas" },
-    { id: 2, nombre: "bananas" },
-    { id: 3, nombre: "limones" },
-    { id: 4, nombre: "narajas" },
-    { id: 5, nombre: "peras" },
-  ];
+  // const frutas = [
+  //   { id: 1, nombre: "manzanas" },
+  //   { id: 2, nombre: "bananas" },
+  //   { id: 3, nombre: "limones" },
+  //   { id: 4, nombre: "narajas" },
+  //   { id: 5, nombre: "peras" },
+  // ];
 
   const UtenteCarlos = {
     nombre: "Carlos",
@@ -26,13 +26,13 @@ const Carlos = ({ textoP, textoh5 }: props) => {
     dinero: 1000,
   };
 
-  let lacompra = 0; 
+  let lacompra = 0;
 
   const [carlos, setCarlos] = useState(UtenteCarlos.dinero);
   const [first, setfirst] = useState(lacompra);
-//const [fruty, setFruty] = useState(listaFruta.values);
+  //const [fruty, setFruty] = useState(listaFruta.values);
 
-// handleMasProduct
+  // handleMasProduct
   const handleMasProduct = () => {
     setCarlos(carlos - 20);
     setfirst(first + 1);
@@ -44,8 +44,7 @@ const Carlos = ({ textoP, textoh5 }: props) => {
   const handleMenosProduct = () => {
     setfirst(first - 1);
 
-    if (first === 0)
-     return setfirst(0);
+    if (first === 0) return setfirst(0);
 
     setCarlos(carlos + 20);
     if (carlos > 1000) return setCarlos(carlos - 20);
@@ -59,16 +58,18 @@ const Carlos = ({ textoP, textoh5 }: props) => {
   };
   //
 
-
   return (
     <Fragment>
       <div className="container">
+        <h5 className="holaUsuario">Hola {UtenteCarlos.nombre}</h5>
         <p style={{ color: "red" }}>{textoP}</p>
-        <h5 style={{ color: "green" }}>{textoh5}</h5>
+        <h5 style={{ color: "yellow" }}>{textoh5}</h5>
         <ul>
           {ListaFruta.map((todo, id) => (
             <>
-              <li key={id}>{todo.id} {todo.name} </li>
+              <li key={id}>
+                {todo.id} {todo.name}{" "}
+              </li>
               <button
                 className="btn btn-warning"
                 onClick={() => handleMenosProduct()}

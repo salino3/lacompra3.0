@@ -8,7 +8,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <div className='divMayor'>
     <App />
+    </div>
   </React.StrictMode>
 );
 
